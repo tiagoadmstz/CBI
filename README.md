@@ -1,2 +1,2 @@
 # CBI
-Sistema de gerenciamento para oficinas de reparo em motores elétricos
+Sistema de controle de ordens de serviço para manutenção de equipamentos elétricos.
