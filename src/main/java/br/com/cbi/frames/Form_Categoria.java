@@ -5,9 +5,10 @@
  */
 package br.com.cbi.frames;
 
-import br.com.cbi.listeners.Listener_Marcas;
+import br.com.cbi.listeners.Listener_Categoria;
 import br.com.fs.api.annotations.MapFrameField;
 import br.com.fs.api.beans.JTextFieldCBI;
+import br.com.fs.api.beans.MenuBarCbiDefault;
 import br.com.fs.api.interfaces.ManipulaFrames;
 import java.util.Arrays;
 import java.util.List;
@@ -18,18 +19,21 @@ import javax.swing.JPanel;
  *
  * @author Tiago
  */
-public final class Form_Marcas extends ManipulaFrames {
+public final class Form_Categoria extends ManipulaFrames {
 
-    private static final long serialVersionUID = -4421071304797221221L;
-    private final Listener_Marcas listener;
+    private static final long serialVersionUID = 5197014160832842243L;
+    private final MenuBarCbiDefault menuBarCbiDefault;
+    private final Listener_Categoria listener;
 
     /**
-     * Creates new form Form_Marcas
+     * Creates new form Form_Categoria
      */
-    public Form_Marcas() {
+    public Form_Categoria() {
+        menuBarCbiDefault = new MenuBarCbiDefault();
+        this.setJMenuBar(menuBarCbiDefault);
         setImageIcon();
         initComponents();
-        listener = new Listener_Marcas(this);
+        listener = new Listener_Categoria(this);
     }
 
     @Override
@@ -38,8 +42,8 @@ public final class Form_Marcas extends ManipulaFrames {
     }
 
     @MapFrameField(referencedField = "descricao", typeParameter = String.class)
-    public JTextFieldCBI getTxtMarca() {
-        return txtMarca;
+    public JTextFieldCBI getTxtCategoria() {
+        return txtCategoria;
     }
 
     /**
@@ -52,41 +56,38 @@ public final class Form_Marcas extends ManipulaFrames {
     private void initComponents() {
 
         painelMain = new javax.swing.JPanel();
-        lbMarca = new javax.swing.JLabel();
-        txtMarca = new br.com.fs.api.beans.JTextFieldCBI();
-        menuBarCbiDefault = new br.com.fs.api.beans.MenuBarCbiDefault();
+        lbCategoria = new javax.swing.JLabel();
+        txtCategoria = new br.com.fs.api.beans.JTextFieldCBI();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cadastro de Marcas");
+        setTitle("Cadastro de Categorias");
         setResizable(false);
 
-        lbMarca.setText("Marca");
+        lbCategoria.setText("Categoria");
 
-        txtMarca.setEnabled(false);
-        txtMarca.setMaxLength(150);
+        txtCategoria.setEnabled(false);
+        txtCategoria.setMaxLength(150);
 
         javax.swing.GroupLayout painelMainLayout = new javax.swing.GroupLayout(painelMain);
         painelMain.setLayout(painelMainLayout);
         painelMainLayout.setHorizontalGroup(
             painelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelMainLayout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelMainLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(painelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(lbMarca, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
-                    .addComponent(txtMarca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lbCategoria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         painelMainLayout.setVerticalGroup(
             painelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelMainLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lbMarca)
+                .addComponent(lbCategoria)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        setJMenuBar(menuBarCbiDefault);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -114,34 +115,33 @@ public final class Form_Marcas extends ManipulaFrames {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Form_Marcas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Form_Categoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Form_Marcas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Form_Categoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Form_Marcas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Form_Categoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Form_Marcas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Form_Categoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Form_Marcas().setVisible(true);
+                new Form_Categoria().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel lbMarca;
-    private br.com.fs.api.beans.MenuBarCbiDefault menuBarCbiDefault;
+    private javax.swing.JLabel lbCategoria;
     private javax.swing.JPanel painelMain;
-    private br.com.fs.api.beans.JTextFieldCBI txtMarca;
+    private br.com.fs.api.beans.JTextFieldCBI txtCategoria;
     // End of variables declaration//GEN-END:variables
 }

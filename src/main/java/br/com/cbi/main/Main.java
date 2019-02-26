@@ -5,20 +5,20 @@
  */
 package br.com.cbi.main;
 
-import br.com.cbi.frames.Form_Marcas;
-import br.com.fs.api.util.ControleInstancias;
 import br.com.fs.api.util.Utilidades;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  *
  * @author Tiago
  */
+@SpringBootApplication
 public class Main {
 
     public static void main(String[] args) {
         Utilidades.mudaLookAndFeel(Utilidades.WINDOWS);
-        Form_Marcas marcas = (Form_Marcas) ControleInstancias.getInstance(Form_Marcas.class.getName());
-        marcas.setVisible(true);
+        SpringApplication.run(Main.class, args);
     }
 
 }

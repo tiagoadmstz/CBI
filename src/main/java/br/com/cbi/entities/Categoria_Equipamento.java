@@ -10,10 +10,13 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Index;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
@@ -31,6 +34,7 @@ import javax.persistence.Version;
     ,@NamedQuery(name = "categoria_equipamento.findById", query = "SELECT ct FROM Categoria_Equipamento AS ct WHERE ct.id = :paramId")
     ,@NamedQuery(name = "categoria_equipamento.findByDescricao", query = "SELECT ct FROM Categoria_Equipamento AS ct WHERE ct.descricao = :paramDescricao")
 })
+@SequenceGenerator(name = "SEQ_CATEGORIA_EQUIP", initialValue = 1, allocationSize = 1)
 public class Categoria_Equipamento extends ManipulaBean<Categoria_Equipamento> {
 
     private static final long serialVersionUID = 5246170522447639324L;
@@ -48,6 +52,7 @@ public class Categoria_Equipamento extends ManipulaBean<Categoria_Equipamento> {
 
     @Id
     @Column(name = "CATEGORIA")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_CATEGORIA_EQUIP")
     public Long getId() {
         return id;
     }
